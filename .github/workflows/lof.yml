@@ -35,3 +35,5 @@ jobs:
       env: 
           mail: ${{ secrets.MAIL }}
           pass: ${{ secrets.PASS }}
+          user1: ${{ secrets.USER1 }}
+          user2: ${{ secrets.USER2 }}
