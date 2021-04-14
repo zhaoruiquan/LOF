@@ -10,7 +10,6 @@ import json
 import configparser
 from datetime import datetime
 from utils import *
-from utils.loggers import Logger
 from utils.SendEMail import SendEmailByGoogleMail
 
 class LOF:
@@ -75,7 +74,7 @@ class LOF:
                 files=None
             )
         except Exception as e:
-            log.logger.error("Send Email Error And Error Message is: ", e)
+            print(e)
         #msg_url = "https://sc.ftqq.com/{}.send?text={}&desp={}".format(key, title, body)
         #requests.get(msg_url)
 
@@ -83,11 +82,9 @@ class LOF:
         info = self.getInfo(id)
         if len(info):
             md = self.md(info)
-            self.message(self.apiKey, "LOF-溢价: " + datetime.now(tz=pytz.timezone("Asia/Shanghai")).strftime("%m-%d %H:%M"), md)
+            self.message(1, "LOF-溢价: " + datetime.now(tz=pytz.timezone("Asia/Shanghai")).strftime("%m-%d %H:%M"), md)
 
 
 if __name__ == "__main__":
     lof = LOF()
-    fetch_day = time.strftime("%Y-%m-%d", time.localtime())
-    log = Logger(abspath + '/logs/Monitor' + fetch_day + '.log', level='info')
     lof.main()
