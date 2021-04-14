@@ -50,7 +50,7 @@ class LOF:
             if discount_rt >= self.disLimit or discount_rt <= self.preLimit:
                 s = {}
                 for key, value in self.content.items():
-                    s[key] = row[value] if value != "fund_id" else "".join(["[", row[value], "](<a href="self.urlBase">", row[value], "</a>)"])
+                    s[key] = row[value] if value != "fund_id" else "".join(["[", row[value], "](<a href=",self.urlBase,">", row[value], "</a>)"])
                 res.append(s)
         return res
 
