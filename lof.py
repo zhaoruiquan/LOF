@@ -11,7 +11,8 @@ import configparser
 from datetime import datetime
 from utils import *
 from utils.SendEMail import SendEmailByGoogleMail
-
+consumer_mail = os.environ.get('mail')
+consumer_pass = os.environ.get('pass')
 class LOF:
     def __init__(self):
         self.cp = configparser.ConfigParser()
@@ -65,8 +66,8 @@ class LOF:
             # 发送邮件
             SendEmailByGoogleMail(
                 subject=title,
-                username="1320518843@qq.com",
-                password="lqtndhtllnjmfgid",
+                username=consumer_mail,
+                password=consumer_pass,
                 receivers=['22590329@qq.com','495300169@qq.com'],
             ).send_mail(
                 way='common',
