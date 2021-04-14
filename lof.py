@@ -5,7 +5,9 @@ import pytz
 import json
 import configparser
 from datetime import datetime
-
+from utils import *
+from utils.loggers import Logger
+from utils.SendEMail import SendEmailByGoogleMail
 
 class LOF:
     def __init__(self):
@@ -56,8 +58,22 @@ class LOF:
         return res
 
     def message(self, key, title, body):
-        msg_url = "https://sc.ftqq.com/{}.send?text={}&desp={}".format(key, title, body)
-        requests.get(msg_url)
+        try:
+            # 发送邮件
+            SendEmailByGoogleMail(
+                subject=title,
+                username="1320518843@qq.com",
+                password="lqtndhtllnjmfgid",
+                receivers=['22590329@qq.com','495300169@qq.com'],
+            ).send_mail(
+                way='common',
+                content=body,
+                files=None
+            )
+        except Exception as e:
+            log.logger.error("Send Email Error And Error Message is: ", e)
+        #msg_url = "https://sc.ftqq.com/{}.send?text={}&desp={}".format(key, title, body)
+        #requests.get(msg_url)
 
     def main(self):
         info = self.getInfo(id)
@@ -68,4 +84,5 @@ class LOF:
 
 if __name__ == "__main__":
     lof = LOF()
+    log = Logger(abspath + '/logs/Monitor' + fetch_day + '.log', level='info')
     lof.main()
