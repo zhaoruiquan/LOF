@@ -13,6 +13,8 @@ from utils import *
 from utils.SendEMail import SendEmailByGoogleMail
 consumer_mail = os.environ.get('mail')
 consumer_pass = os.environ.get('pass')
+consumer_user1 = os.environ.get('user1')
+consumer_user2 = os.environ.get('user2')
 class LOF:
     def __init__(self):
         self.cp = configparser.ConfigParser()
@@ -48,7 +50,7 @@ class LOF:
             if discount_rt >= self.disLimit or discount_rt <= self.preLimit:
                 s = {}
                 for key, value in self.content.items():
-                    s[key] = row[value] if value != "fund_id" else "".join(["[", row[value], "](", row[value], ")"])
+                    s[key] = row[value] if value != "fund_id" else "".join(["[", row[value], "](<a href="self.urlBase">", row[value], "</a>)"])
                 res.append(s)
         return res
 
@@ -68,7 +70,7 @@ class LOF:
                 subject=title,
                 username=consumer_mail,
                 password=consumer_pass,
-                receivers=['22590329@qq.com','495300169@qq.com'],
+                receivers=[consumer_user1,consumer_user2],
             ).send_mail(
                 way='common',
                 content=body,
