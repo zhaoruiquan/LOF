@@ -6,6 +6,7 @@ import json
 import configparser
 from datetime import datetime
 from utils import *
+from utils.loggers import Logger
 from utils.SendEMail import SendEmailByGoogleMail
 
 class LOF:
