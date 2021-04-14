@@ -88,5 +88,6 @@ class LOF:
 
 if __name__ == "__main__":
     lof = LOF()
+    fetch_day = time.strftime("%Y-%m-%d", time.localtime())
     log = Logger(abspath + '/logs/Monitor' + fetch_day + '.log', level='info')
     lof.main()
