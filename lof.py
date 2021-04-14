@@ -72,7 +72,7 @@ class LOF:
                 password=consumer_pass,
                 receivers=[consumer_user1,consumer_user2],
             ).send_mail(
-                way='common',
+                way='html',
                 content=body,
                 files=None
             )
