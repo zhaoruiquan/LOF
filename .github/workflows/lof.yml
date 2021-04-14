@@ -33,5 +33,5 @@ jobs:
         sed -i "s/ServerChanKey/${{ secrets.ServerChanKey }}/g" config.cfg
         python ./lof.py >> /dev/null
         env: 
-        mail: ${{ secrets.MAIL }}
-        pass: ${{ secrets.PASS }}
+          mail: ${{ secrets.MAIL }}
+          pass: ${{ secrets.PASS }}
