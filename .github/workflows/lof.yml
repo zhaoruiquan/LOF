@@ -32,6 +32,6 @@ jobs:
         pip install requests pytz datetime configparser
         sed -i "s/ServerChanKey/${{ secrets.ServerChanKey }}/g" config.cfg
         python ./lof.py >> /dev/null
-        env: 
+      env: 
           mail: ${{ secrets.MAIL }}
           pass: ${{ secrets.PASS }}
