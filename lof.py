@@ -1,3 +1,7 @@
+import os
+import sys
+abspath = os.path.split(os.path.realpath(__file__))[0]
+sys.path.append(abspath)
 import time
 import requests
 import re
