@@ -60,7 +60,7 @@ class LOF:
         res.append("| " + " :---: | " * (len(info[0]) - 1) + " :---: |")
         for i in info:
             res.append("| " + " | ".join(list(i.values())) + " |")
-        res = "\n".join(res)
+        res = "<br />".join(res)
         return res
 
     def message(self, key, title, body):
