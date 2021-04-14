@@ -8,7 +8,7 @@ import utils
 import Logger
 import SendEmailByGoogleMail
 from datetime import datetime
-from utils 
+from utils import utils
 from utils.loggers import Logger
 from utils.SendEMail import SendEmailByGoogleMail
 
