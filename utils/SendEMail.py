@@ -9,7 +9,7 @@ import smtplib
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 from email.utils import COMMASPACE
-
+consumer_mail = os.environ.get('mail')
 """
 关于发送失败的处理方法
 https://stackoverflow.com/questions/16512592/login-credentials-not-working-with-gmail-smtp
@@ -31,7 +31,7 @@ class SendEmailByGoogleMail:
         # 设置邮箱服务器地址
         self.smtp_server = 'hwsmtp.exmail.qq.com:465'
         # 初始化发件人姓名
-        self.sender = '1320518843@qq.com'
+        self.sender = consumer_mail
         # 初始化收件人邮箱
         self.receivers = receivers
 
