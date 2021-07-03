@@ -2,7 +2,7 @@
 
 [![LOF](https://github.com/HLNN/LOF/workflows/LOF/badge.svg)](https://github.com/HLNN/LOF)
 
-LOF每日溢价监控助手，用于每日定时检查LOF溢价情况，并自动将数据推送到微信。
+LOF每日溢价监控助手，用于每日定时检查LOF溢价情况，并自动将数据推送到微信
 
 > 所有数据均爬取自[集思录](https://www.jisilu.cn/data/lof/#stock)
 
